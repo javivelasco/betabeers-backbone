@@ -31,7 +31,8 @@ mongoose.connect(config.creds.mongoose_auth,
 // create schema
 var FilmSchema = new mongoose.Schema({
   title: String,
-  director: String
+  director: String,
+  votes: Number,
 });
 
 // use the schema to register a model
@@ -92,9 +93,10 @@ function postFilm(req, res, next) {
   var film = new Film();
   film.title = req.body.title;
   film.director = req.body.director;
+  film.votes = req.body.votes;
   film.save(function (err, obj) {
     res.send(obj);
-    ApiEvent.emit('api:film:new', obj);
+    ApiEvent.emit('api:films:change', obj);
   });
 };
 
@@ -103,8 +105,10 @@ function putFilm(req, res, next) {
   Film.findById(req.params.id, function(err, p) {
     p.director = req.body.director;
     p.title = req.body.title;
+    film.votes = req.body.votes;
     p.save(function (error, obj) {
       res.send(obj);
+      ApiEvent.emit('api:films:change', obj);
     });
   });
 };
@@ -115,6 +119,7 @@ function deleteFilm(req, res, next) {
   Film.findById(req.params.id, function(err, p) {
     p.remove(function(error, obj) {
       res.send(obj);
+      ApiEvent.emit('api:films:change', obj);
     });
   });
 };
@@ -152,8 +157,8 @@ io.sockets.on('connection', function(client) {
   });
 
   // when a new film is added by a client
-  ApiEvent.on('api:film:new', function(obj) {
-    client.emit('api:film:new', obj);
+  ApiEvent.on('api:films:change', function(obj) {
+    client.emit('api:films:change', obj);
   });
 
 });
