@@ -41,7 +41,7 @@ var Film = mongoose.model('Film');
 // configure express
 var app = express();
 app.configure(function(){
-  app.set('port', 8362);
+  app.set('port', process.env['app_port'] || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   app.use(express.favicon());
