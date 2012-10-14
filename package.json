@@ -9,6 +9,5 @@
     "express": "3.0.0rc4",
     "ejs": "*",
     "stylus": "*",
-    "redis": "*"
   }
 }

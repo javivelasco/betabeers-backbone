@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<link rel="stylesheet" href="style.css"/>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript" src="underscore-min.js"></script>
+	<script type="text/javascript" src="backbone-min.js"></script>
+	<script type="text/javascript" src="socket.io.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+
+	<script type="text/html" id="item-template">
+		<div class="view">
+			<label><%= title %></label>
+			<button class="destroy"></button>
+		</div>
+	</script>
+
+</script>
+</head>
+<body>
+	<section id="filmsapp">
+		<header id="mainheader">
+			<h1>Films</h1>
+			<input id="new-film" placeholder="Insert new film" autofocus>
+		</header>
+		<section>
+			<ul id="films-list"></ul>
+		</section>
+	</section>
+
+
+	
+
+</body>
+</html>
