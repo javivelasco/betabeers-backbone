@@ -105,7 +105,7 @@ function putFilm(req, res, next) {
   Film.findById(req.params.id, function(err, p) {
     p.director = req.body.director;
     p.title = req.body.title;
-    film.votes = req.body.votes;
+    p.votes = req.body.votes;
     p.save(function (error, obj) {
       res.send(obj);
       ApiEvent.emit('api:films:change', obj);
