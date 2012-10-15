@@ -32,6 +32,7 @@ mongoose.connect(config.creds.mongoose_auth,
 var FilmSchema = new mongoose.Schema({
   title: String,
   director: String,
+  synopsis: String,
   votes: Number,
 });
 
@@ -93,6 +94,7 @@ function postFilm(req, res, next) {
   var film = new Film();
   film.title = req.body.title;
   film.director = req.body.director;
+  film.synopsis = req.body.synopsis;
   film.votes = req.body.votes;
   film.save(function (err, obj) {
     res.send(obj);
@@ -104,6 +106,7 @@ function postFilm(req, res, next) {
 function putFilm(req, res, next) {
   Film.findById(req.params.id, function(err, p) {
     p.director = req.body.director;
+    film.synopsis = req.body.synopsis;
     p.title = req.body.title;
     p.votes = req.body.votes;
     p.save(function (error, obj) {
