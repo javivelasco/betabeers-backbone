@@ -106,7 +106,7 @@ function postFilm(req, res, next) {
 function putFilm(req, res, next) {
   Film.findById(req.params.id, function(err, p) {
     p.director = req.body.director;
-    film.synopsis = req.body.synopsis;
+    p.synopsis = req.body.synopsis;
     p.title = req.body.title;
     p.votes = req.body.votes;
     p.save(function (error, obj) {
@@ -165,14 +165,6 @@ io.sockets.on('connection', function(client) {
   });
 
 });
-
-
-
-
-
-
-
-
 
 
 // express server listening
