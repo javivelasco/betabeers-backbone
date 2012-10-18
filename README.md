@@ -1,7 +1,7 @@
 Betabeers Backbone.js API server
 ==================================
 
-A simple API built with [Node.js](http://nodejs.org/), [Express](http://expressjs.com/) & [MongoDB](http://www.mongodb.org/) for supporting the development of a sample application for the Betabeers meeting at Cordoba. For now, the system work with just a film scheme with the attributes:
+A simple API built with [Node.js](http://nodejs.org/), [Express](http://expressjs.com/), [SocketIO](http://socket.io/) & [MongoDB](http://www.mongodb.org/) for supporting the development of a sample application for the Betabeers meeting at Cordoba. You can use the deployed project [here](http://betabeers-backbone.nodester.com). For now, the system work with just a film scheme with the attributes:
 
 1. ID
 2. Title
@@ -21,7 +21,7 @@ The API has the following methods around one single object, and other requests w
 
 ## Socket.IO
 
-In order to improve the dynamism of the workshop, I've used SocketIO so when a client connects, an event is broadcasted to all the other clients. Each time the list changes (POST/PUT/DELETE request), an event is also broadcasted and the clients can update the models in real time. Check out the client-side code at the [Client App Skeleton](https://github.com/javivelasco/betabeers-backbone-skeleton).
+In order to improve the dynamism of the workshop, I've used [SocketIO](http://socket.io/) so when a client connects, an event is broadcasted to all the other clients. Each time the list changes (POST/PUT/DELETE request), an event is also broadcasted and the clients can update the models in real time. Check out the client-side code at the [Client App Skeleton](https://github.com/javivelasco/betabeers-backbone-skeleton).
 
 ## Install
 
