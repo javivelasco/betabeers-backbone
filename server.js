@@ -51,7 +51,17 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(require('stylus').middleware(__dirname + '/public'));
+  app.use(stylus.middleware({ 
+          src: __dirname + '/stylus',
+          dest: __dirname + '/public',
+          compile: function (str, path) {
+              return stylus(str)
+                  .set('filename', path)
+                  .set('compress', true)
+                  .use(nib())
+                  .import('nib');
+              }
+      }));
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
