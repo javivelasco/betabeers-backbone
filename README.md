@@ -1,4 +1,4 @@
-Betabeers #ODB Backbone.js API server
+Betabeers #BBODB Backbone.js API server
 ==================================
 
 A simple API built with [Node.js](http://nodejs.org/), [Express](http://expressjs.com/), [SocketIO](http://socket.io/) & [MongoDB](http://www.mongodb.org/) for supporting the development of a sample application for the Betabeers meeting at Cordoba. You can use the deployed project [here](http://betabeers-backbone.nodester.com). For now, the system work with just a film scheme with the attributes:
