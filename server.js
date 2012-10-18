@@ -7,6 +7,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , socket = require('socket.io')
+  , stylus = require('stylus')
   , mongoose = require('mongoose')
   , config = require('./config')
   , EventEmitter = require('events').EventEmitter
