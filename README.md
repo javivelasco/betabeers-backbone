@@ -14,10 +14,10 @@ Consider that the ID attribute used in MongoDB is called _id so, in other to int
 
 The API has the following methods around one single object, and other requests will result an error:
 
-* GET /films - Get all the films
-* POST /films - Create new film
-* PUT /films/id - Modify film with id
-* DELETE /films/id - Delete film with id
+* GET /api/films - Get all the films
+* POST /api/films - Create new film
+* PUT /api/films/id - Modify film with id
+* DELETE /api/films/id - Delete film with id
 
 ## Socket.IO
 
