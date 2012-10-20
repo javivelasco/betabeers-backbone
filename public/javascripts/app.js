@@ -8,7 +8,7 @@ $(function() {
 	app.router.start();
 
 	// configure the sockets
-	app.server = io.connect('http://localhost:80');
+	app.server = io.connect('http://betabeers-backbone.nodester.com:80');
 
 	// client connected
 	app.server.on("clients:hi", function(data) {
