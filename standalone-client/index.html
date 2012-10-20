@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Meet Backbone.js | Betabeers #ODB</title>
+	<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+	<!-- Main DOM -->
+	<div id="wrapper">
+		<header id="mainheader">
+			<h1>Meet Backbone.js</h1>
+		</header>
+		<section id="mainarticle">
+			<div id="filmsapp">
+				<!-- Main content will be here -->
+			</div>
+		</section>
+		<footer id="mainfooter">
+			Sample application for Backbone.js Workshop at Betabeers Córdoba #BBODB (October 18th 2012). You are free to modify and distribute this sample app.
+		</footer>
+	</div>
+
+
+	<!-- Template for one single film -->
+	<script type="text/html" id="item-template">
+		<article class="item-view">
+			<aside class="vote_count">
+				<% if (votes == 1) { %><%= votes %> vote
+				<% } else { %> <%= votes %> votes <% } %>
+			</aside>
+			<a href="#films/<% if (typeof(id) != "undefined"){%><%= id %><% }%>"><%= title %></a>
+			<button class="vote"></button>
+			<button class="destroy"></button>
+		</article>
+	</script>
+
+
+	<!-- Template for the list of films -->
+	<script type="text/html" id="list-template">
+		<input id="new-film" placeholder="Insert new film" autofocus>
+		<ul id="films-list"></ul>
+	</script>
+
+
+	<!-- Template for detailed view of one film -->
+	<script type="text/html" id="detail-template">
+		<aside id="detailed-votes">
+			<% if (votes == 1) { %><%= votes %> vote
+			<% } else { %> <%= votes %> votes <% } %>
+		</aside>
+		<ul id="detailed-view">
+			<li>
+				<% if (!title) { %> 
+					<article class="empty">Edit title</article>
+				<% } else { %>
+					<h3><%= title %></h3>
+				<% }%>
+				<input class="title" autofocus style="display:none;" data-name="title" value="<%= title %>"/>
+			</li>
+			<li>
+				<% if (!director) { %>
+					<article class="empty subtitle">Edit director</article>
+				<% } else { %>
+					<article class="subtitle">by <%= director %></article>
+				<% }%>
+				<input class="subtitle" autofocus style="display:none;" data-name="director" value="<%= director %>"/>
+			</li>
+			<li>
+				<% if (!synopsis) { %>
+					<article class="empty">Edit synopsis</article>
+				<% } else { %>
+					<article><%= synopsis %></article>
+				<% }%>
+				<textarea autofocus style="display:none;" data-name="synopsis"><%= synopsis %></textarea>
+			</li>
+		</ul>
+	</script>
+
+	<!-- Global space variables -->
+	<script type="text/javascript">
+		window.serverURL = "http://betabeers-backbone.nodester.com:80/";
+		//window.serverURL = "http://localhost:3000/";
+	</script>
+
+	<!-- Loading scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/lib/underscore-min.js"></script>
+	<script type="text/javascript" src="js/lib/backbone-min.js"></script>
+	<script type="text/javascript" src="js/lib/socket.io.js"></script>
+	<script type="text/javascript" src="js/models/film.js"></script>
+	<script type="text/javascript" src="js/collections/films.js"></script>
+	<script type="text/javascript" src="js/views/film.js"></script>
+	<script type="text/javascript" src="js/views/films.js"></script>
+	<script type="text/javascript" src="js/views/filmdetail.js"></script>
+	<script type="text/javascript" src="js/routers/router.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

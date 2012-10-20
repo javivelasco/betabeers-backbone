@@ -1,0 +1,11 @@
+<script type="text/html" id="item-template">
+	<article class="item-view">
+		<aside class="vote_count">
+			<% if (votes == 1) { %><%= votes %> vote
+			<% } else { %> <%= votes %> votes <% } %>
+		</aside>
+		<a href="#films/<% if (typeof(id) != "undefined"){%><%= id %><% }%>"><%= title %></a>
+		<button class="vote"></button>
+		<button class="destroy"></button>
+	</article>
+</script>

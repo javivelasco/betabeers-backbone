@@ -1,7 +1,188 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url("http://fonts.googleapis.com/css?family=Droid+Sans|Shadows+Into+Light");
+html {
+  background: #eaeaea url("../images/base.png") repeat 0 0;
+  font: 18px 'Droid Sans', sans-serif;
+  color: #888;
 }
 a {
-  color: #00b7ff;
+  color: #666;
+  text-decoration: none;
+  text-shadow: 0 0 1px #ddd;
+}
+h3 {
+  color: #333;
+  margin-bottom: 0;
+}
+button {
+  appearance: none;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-size: 22px;
+  height: 40px;
+  margin: auto 0;
+  padding: 0;
+  vertical-align: baseline;
+  width: 40px;
+}
+input,
+textarea {
+  border: 0;
+  color: #666;
+  font: 18px 'Droid Sans', sans-serif;
+  height: 50px;
+  line-height: 30px;
+  margin: 0 0;
+  outline: 0;
+  padding: 0 0;
+  padding: 0 20px;
+  resize: none;
+  width: 558px;
+}
+#wrapper {
+  margin: 0 auto;
+  min-height: 550px;
+  position: relative;
+  width: 600px;
+}
+#mainheader {
+  color: #333;
+  font: 30px 'Shadows Into Light', cursive;
+  text-align: center;
+  text-shadow: 0px 0px 0px #777;
+}
+#mainarticle {
+  background: #fff;
+  border: 1px solid #cecece;
+  border-radius: 5px;
+  padding: 5px 0;
+  position: relative;
+}
+#mainfooter {
+  bottom: 0;
+  display: block;
+  font-size: 14px;
+  line-height: 23px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+#films-list {
+  margin: 0;
+  padding: 0;
+}
+#films-list li {
+  border-bottom: 1px solid #eaeaea;
+  line-height: 50px;
+  list-style: none;
+  padding: 0 150px 0 20px;
+  position: relative;
+}
+#films-list li .vote_count {
+  background-color: #94e58d;
+  box-shadow: -1px 1px 2px #ccc;
+  color: #333;
+  font: 20px 'Shadows Into Light', cursive;
+  line-height: 30px;
+  margin: 5px 0 0 -30px;
+  padding: 5px 10px;
+  position: absolute;
+  transition: all 0.6s ease-in-out;
+  width: 70px;
+  z-index: -1;
+}
+#films-list li .destroy {
+  bottom: 0;
+  color: #d14545;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+#films-list li .destroy:after {
+  content: '✖';
+}
+#films-list li .vote {
+  bottom: 0;
+  color: #666;
+  position: absolute;
+  right: 40px;
+  top: 0;
+}
+#films-list li .vote:after {
+  content: '✚';
+}
+#films-list li:first-child {
+  border-top: solid 1px #eaeaea;
+}
+#films-list li:last-child {
+  border-bottom: 0;
+}
+#films-list li:hover .vote_count {
+  margin-left: -90px;
+}
+#films-list li:hover .destroy {
+  display: block;
+  text-shadow: 0 0 2px #d14545;
+}
+#films-list li:hover .vote {
+  display: block;
+  text-shadow: 0 0 2px #666;
+}
+#detailed-view {
+  list-style: none;
+  margin: 0;
+  padding: 0 30px;
+}
+#detailed-view article {
+  line-height: 30px;
+  margin: 20px 0;
+}
+#detailed-view article .empty {
+  color: #ccc;
+  font-style: italic;
+}
+#detailed-view article .subtitle {
+  font-size: 15px;
+  font-style: italic;
+  height: 30px;
+  margin-top: 0;
+  padding: 0;
+}
+#detailed-view input,
+#detailed-view textarea {
+  padding: 0;
+}
+#detailed-view input .title {
+  padding: 0;
+  color: #333;
+  padding: 0;
+  font-weight: bold;
+  font-size: 1.17em;
+}
+#detailed-view textarea {
+  min-height: 100px;
+}
+#detailed-votes {
+  background-color: #94e58d;
+  box-shadow: -1px 1px 4px #aaa;
+  color: #333;
+  font: 20px 'Shadows Into Light', cursive;
+  padding: 8px;
+  position: absolute;
+  right: 15px;
+  top: -20px;
+}
+#detailed-votes:before {
+  border-bottom: 20px solid #6ddc64;
+  content: "";
+  height: 0;
+  left: -20px;
+  position: absolute;
+  top: 0;
+  width: 0;
+  border-left: 20px solid transparent;
 }

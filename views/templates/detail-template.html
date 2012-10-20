@@ -1,0 +1,32 @@
+<script type="text/html" id="detail-template">
+	<aside id="detailed-votes">
+		<% if (votes == 1) { %><%= votes %> vote
+		<% } else { %> <%= votes %> votes <% } %>
+	</aside>
+	<ul id="detailed-view">
+		<li>
+			<% if (!title) { %> 
+				<article class="empty">Edit title</article>
+			<% } else { %>
+				<h3><%= title %></h3>
+			<% }%>
+			<input class="title" autofocus style="display:none;" data-name="title" value="<%= title %>"/>
+		</li>
+		<li>
+			<% if (!director) { %>
+				<article class="empty subtitle">Edit director</article>
+			<% } else { %>
+				<article class="subtitle">by <%= director %></article>
+			<% }%>
+			<input class="subtitle" autofocus style="display:none;" data-name="director" value="<%= director %>"/>
+		</li>
+		<li>
+			<% if (!synopsis) { %>
+				<article class="empty">Edit synopsis</article>
+			<% } else { %>
+				<article><%= synopsis %></article>
+			<% }%>
+			<textarea autofocus style="display:none;" data-name="synopsis"><%= synopsis %></textarea>
+		</li>
+	</ul>
+</script>
