@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Meeting Backbone.js | Betabeers workshop' });
+  res.render('index', { title: 'Meet Backbone.js | Betabeers workshop' });
 };
