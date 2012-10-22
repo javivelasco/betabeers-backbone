@@ -63,6 +63,7 @@ app.configure(function(){
                   .import('nib');
               }
       }));
+  //app.use(require('stylus').middleware(__dirname + '/public'));
   app.use(express.static(path.join(__dirname, 'public')));
 });
 

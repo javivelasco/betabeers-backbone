@@ -46,7 +46,6 @@ textarea {
 #wrapper {
   margin: 0 auto;
   min-height: 550px;
-  position: relative;
   width: 600px;
 }
 #mainheader {
@@ -63,15 +62,14 @@ textarea {
   position: relative;
 }
 #mainfooter {
-  bottom: 0;
-  display: block;
   font-size: 14px;
   line-height: 23px;
-  position: absolute;
+  margin-top: 30px;
   text-align: center;
   width: 100%;
 }
 #films-list {
+  display: block;
   margin: 0;
   padding: 0;
 }
@@ -141,11 +139,11 @@ textarea {
   line-height: 30px;
   margin: 20px 0;
 }
-#detailed-view article.empty {
+#detailed-view .empty {
   color: #ccc;
   font-style: italic;
 }
-#detailed-view article.subtitle {
+#detailed-view .subtitle {
   font-size: 15px;
   font-style: italic;
   height: 30px;

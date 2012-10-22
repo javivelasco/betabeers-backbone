@@ -30,6 +30,7 @@ var app = app || {};
 
 		// actions for one film
 		film: function(identificator) {
+			if (app.filmView !== undefined) app.filmView.unbind();
 			app.film = new app.Film({id: identificator});
 			app.filmView = new app.FilmViewDetail({model: app.film});
 			app.film.fetch();	
