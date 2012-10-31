@@ -2,8 +2,8 @@
 /**
  * Module dependencies.
  */
-var express = require('express')
-  , routes = require('./routes')
+var express = require('express') ,
+  routes = require('./routes')
   , http = require('http')
   , path = require('path')
   , socket = require('socket.io')
@@ -23,7 +23,7 @@ reset = '\033[0m';
 var ApiEvent = new EventEmitter();
 
 // connect mongoose
-mongoose.connect(config.creds.mongoose_auth, 
+mongoose.connect(config.creds.mongoose_auth,
   {server: {
     poolSize:20,
     auto_reconnect: true
@@ -38,8 +38,8 @@ var FilmSchema = new mongoose.Schema({
 });
 
 // use the schema to register a model
-mongoose.model('Film', FilmSchema); 
-var Film = mongoose.model('Film'); 
+mongoose.model('Film', FilmSchema);
+var Film = mongoose.model('Film');
 
 // configure express
 var app = express();
@@ -52,7 +52,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(stylus.middleware({ 
+  app.use(stylus.middleware({
           src: __dirname + '/stylus',
           dest: __dirname + '/public',
           compile: function (str, path) {
@@ -92,14 +92,14 @@ function getFilm(req, res, next) {
   Film.findById(req.params.id, function (error,data) {
     res.send(data);
   });
-};
+}
 
 // get collection of films
 function getFilms(req, res, next) {
   Film.find().limit(100).execFind(function (arr,data) {
     res.send(data);
   });
-};
+}
 
 // get all the films
 function postFilm(req, res, next) {
@@ -112,7 +112,7 @@ function postFilm(req, res, next) {
     res.send(obj);
     ApiEvent.emit('api:films:change', obj);
   });
-};
+}
 
 // put new attributes on a film
 function putFilm(req, res, next) {
@@ -126,7 +126,7 @@ function putFilm(req, res, next) {
       ApiEvent.emit('api:films:change', obj);
     });
   });
-};
+}
 
 // delete a film from the database
 function deleteFilm(req, res, next) {
@@ -137,7 +137,7 @@ function deleteFilm(req, res, next) {
       ApiEvent.emit('api:films:change', obj);
     });
   });
-};
+}
 
 // define the routes
 app.get('/', routes.index);
@@ -160,14 +160,14 @@ io.sockets.on('connection', function(client) {
   // add the client and emits a broadcast message
   n_clients += 1;
   client.broadcast.emit('clients:hi', n_clients);
-  console.log(clc.green("[Socket]") 
+  console.log(clc.green("[Socket]")
     + " New client connected ::: total " + n_clients);
 
   // client is disconnected and decrease the counter
   client.on('disconnect', function() {
     n_clients -= 1;
     client.broadcast.emit('clients:bye', n_clients);
-    console.log(clc.green("[Socket]") 
+    console.log(clc.green("[Socket]")
       + " Client disconnected ::: total " + n_clients);
   });
 
