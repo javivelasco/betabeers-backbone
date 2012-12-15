@@ -3,15 +3,15 @@
  * Module dependencies.
  */
 var express = require('express') ,
-  routes = require('./routes')
-  , http = require('http')
-  , path = require('path')
-  , socket = require('socket.io')
-  , stylus = require('stylus')
-  , mongoose = require('mongoose')
-  , config = require('./config')
-  , EventEmitter = require('events').EventEmitter
-  , clc = require('cli-color');
+  routes = require('./routes'),
+  http = require('http'),
+  path = require('path'),
+  socket = require('socket.io'),
+  stylus = require('stylus'),
+  mongoose = require('mongoose'),
+  config = require('./config'),
+  EventEmitter = require('events').EventEmitter,
+  clc = require('cli-color');
 
 // define colors for the console
 var red, blue, reset;
@@ -34,7 +34,7 @@ var FilmSchema = new mongoose.Schema({
   title: String,
   director: String,
   synopsis: String,
-  votes: Number,
+  votes: Number
 });
 
 // use the schema to register a model
@@ -47,7 +47,7 @@ app.configure(function(){
   app.set('port', process.env['app_port'] || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
-  app.use(express.favicon(__dirname + '/public/images/favicon.ico'))
+  app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
@@ -160,15 +160,15 @@ io.sockets.on('connection', function(client) {
   // add the client and emits a broadcast message
   n_clients += 1;
   client.broadcast.emit('clients:hi', n_clients);
-  console.log(clc.green("[Socket]")
-    + " New client connected ::: total " + n_clients);
+  console.log(clc.green("[Socket]") +
+    " New client connected ::: total " + n_clients);
 
   // client is disconnected and decrease the counter
   client.on('disconnect', function() {
     n_clients -= 1;
     client.broadcast.emit('clients:bye', n_clients);
-    console.log(clc.green("[Socket]")
-      + " Client disconnected ::: total " + n_clients);
+    console.log(clc.green("[Socket]") +
+      " Client disconnected ::: total " + n_clients);
   });
 
   // when a new film is added by a client
